@@ -1,9 +1,14 @@
-setURL('https://gruppe-289.developerakademie.net/Join/smallest_backend_ever');
-
+setURL('https://lukas-kolbe.developerakademie.net/join/smallest_backend_ever');
 
 let users = [];
 let currentUser = [];
 
+
+async function loadDataBaseLogin() {
+    await downloadFromServer();
+    users = JSON.parse(backend.getItem('user')) || [];
+    loadFromLocalStorage();
+}
 
 /**
  * Load all Users for the login.
@@ -283,7 +288,7 @@ function login() {
  * 
  */
 function isLogedIn(decryptUserName, decryptEmail, isAdmin) {
-    window.location.href = "../board.html";
+    window.location.href = "/join/board.html";
     let NewcurrentUser = {
         'name': decryptUserName,
         'email': decryptEmail,
@@ -353,6 +358,7 @@ function loadCurrentUser() {
         }
     }
 }
+
 
 
 /**
