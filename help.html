@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
+    <link rel="icon" href="img/joinlogo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="templates/header.css">
+    <script src="/scripts/mini_backend.js"></script>
+    <script src="/scripts/script.js"></script>
+    <script src="/scripts/board.js"></script>
+    <script src="/scripts/addTask.js"></script>
+    <script src="templates/includeHTML.js"></script>
+    <script src="templates/header.js"></script>
+</head>
+
+<body class="d-flex" onload="init(); loadDataBase();">
+    <div include-html="templates/header.html" class="header-template"></div>
+    <main class="bl-w-100 pt-4 px-3">
+        <div class="pb-3">
+            <h2 class="mb-0 fw-bold">How to...</h2>
+            <span class="primary-text">Example how this app works and what you can do with it</span>
+        </div>
+        <div class="help-box-1">
+            <div>
+                <h3 class="mb-3">Add a Task</h3>
+                <ul>
+                    <li>Title: Name of the new task</li>
+                    <li>Categorie: Department of the company</li>
+                    <li>Description: what should the employee do exactly </li>
+                    <li>Due Date: by when does the task has to be finished</li>
+                    <li>Urgency: how high is the priority of the task</li>
+                    <li>Assigned to: for which employee is the task</li>
+                </ul>
+            </div>
+            <img class="w-50" src="img/addtask-help.png">
+        </div>
+        <span>When "Create Task" is pressed the new Task appears in the Backlog and on the Board.</span>
+        <div class="help-box-2 mt-4">
+            <div>
+                <h3 class="mb-3">Backlog</h3>
+                <span>Here you can see all the task that were created but not pushed to the board.</span>
+            </div>
+            <img class="w-50" src="img/backlog-help.png">
+        </div>
+        <div class="help-box-1 mt-4">
+            <div>
+                <h3 class="mb-3">Board</h3>
+                <span>Here you can see all new task that haven't been jet.</span><br>
+                <span>You can see what phase they are in.</span><br>
+                <span>By drag and drop a task can be moved into an other phase.</span><br>
+                <span>When a task is done it can be deleted.</span><br>
+
+            </div>
+            <img class="w-50" src="img/board-help.png">
+        </div>
+    </main>
+
+</body>
+
+</html>

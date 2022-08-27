@@ -1,0 +1,209 @@
+input,
+select {
+    height: 80px;
+    width: 500px;
+    font-size: 20px;
+    border-radius: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.addTask {
+    display: flex;
+    border-radius: 10px;
+    padding: 1.5rem 1.5rem;
+    height: 90%;
+}
+
+.mainAddTaskContainer {
+    width: calc(100% - 150px);
+    height: calc(100vh - 55px);
+
+}
+
+.addTask-headline {
+    padding-bottom: 3rem !important;
+}
+
+.inputFielder {
+    width: 510px;
+    margin: 30px;
+}
+
+.avatar {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    opacity: 0.5;
+    cursor: pointer;
+    border: 4px solid transparent;
+}
+
+.avatar:hover {
+    opacity: 1;
+}
+
+.Employee-selected {
+    font-weight: bolder;
+    color: #1E3190;
+}
+
+.employee {
+    cursor: pointer;
+}
+
+.createButton {
+    border: none;
+    border-radius: 10px;
+    background-color: #1E3190;
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 50px;
+    width: 120px;
+}
+
+.createButton:hover {
+    background-color: #1e3190cb;
+}
+
+.cancelButton {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 50px;
+    width: 120px;
+    font-weight: bolder;
+}
+
+a {
+    text-decoration: none;
+}
+
+.cancelButton:hover {
+    background-color: #cfcdd6;
+}
+
+.assignedContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+textarea {
+    resize: both;
+    width: 500px;
+    height: 150px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 1450px) {
+    .inputFielder {
+        width: 490px;
+        margin: 10px !important;
+    }
+}
+
+@media (max-width: 1249px) {
+    .mainAddTaskContainer {
+        height: 100% !important;
+    }
+
+    textarea {
+        height: 50px;
+    }
+
+    input,
+    select {
+        height: 60px;
+    }
+
+    .assign-to-design {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .header-include-html {
+        width: unset !important;
+    }
+
+    .addTask-headline {
+        padding-top: 100px;
+    }
+
+    input,
+    select {
+        width: 100% !important;
+    }
+
+    textarea {
+        width: 100% !important;
+    }
+
+    .header-include-html {
+        width: 20px;
+    }
+
+    .mainAddTaskContainer {
+        width: auto;
+    }
+
+    .inputFielder {
+        width: 100% !important;
+    }
+
+    .d-flex {
+        display: none;
+    }
+}
+
+@media (max-width: 670px) {
+    .all-users-design {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .mainAddTaskContainer {
+        padding-inline: 5px !important;
+    }
+
+    .cancelButton {
+        width: 100px;
+        margin-left: 0;
+    }
+
+    .createButton {
+        width: 110px;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 300px) {
+    .addTask {
+        padding: 1.5rem 0rem !important;
+    }
+}

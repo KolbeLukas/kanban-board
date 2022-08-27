@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="icon" href="img/joinlogo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="templates/header.css">
+    <script src="/scripts/mini_backend.js"></script>
+    <script src="/scripts/script.js"></script>
+    <script src="/scripts/board.js"></script>
+    <script src="templates/includeHTML.js"></script>
+    <script src="templates/header.js"></script>
+</head>
+
+<body onload="init(); loadDataBase(); loadBoard();">
+    <div class="board">
+        <div class="header-include-html" include-html="templates/header.html">
+        </div>
+        <div class=" all-boxes">
+            <div class="div-todo-progress">
+                <div class="board-box">
+                    <div class="text-center">
+                        <h2>
+                            <b>
+                                TO DO
+                            </b>
+                        </h2>
+                    </div>
+                    <div class="box-frame-top">
+                    </div>
+                    <div class="board-content" id="todo" ondrop="moveto('todo')" ondragover="allowDrop(event)">
+                    </div>
+                    <div class="box-frame-bottom">
+                    </div>
+                </div>
+                <div class="board-box">
+                    <div class="text-center">
+                        <h2>
+                            <b>
+                                IN PROGRESS
+                            </b>
+                        </h2>
+                    </div>
+                    <div class="box-frame-top">
+                    </div>
+                    <div class="board-content" id="inProgress" ondrop="moveto('inProgress')" ondragover="allowDrop(event)">
+                    </div>
+                    <div class="box-frame-bottom">
+                    </div>
+                </div>
+            </div>
+            <div class="div-testing-Done">
+                <div class="board-box">
+                    <div class="text-center">
+                        <h2>
+                            <b>
+                                TESTING
+                            </b>
+                        </h2>
+                    </div>
+                    <div class="box-frame-top">
+                    </div>
+                    <div class="board-content" id="testing" ondrop="moveto('testing')" ondragover="allowDrop(event)">
+                    </div>
+                    <div class="box-frame-bottom">
+                    </div>
+                </div>
+                <div class="board-box">
+                    <div class="text-center">
+                        <h2>
+                            <b>
+                                DONE
+                            </b>
+                        </h2>
+                    </div>
+                    <div class="box-frame-top">
+                    </div>
+                    <div class="board-content" id="done" ondrop="moveto('done')" ondragover="allowDrop(event)">
+                    </div>
+                    <div class="box-frame-bottom">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<div class="overflow">
+    <div class="header">
+        <div class="header-child">
+            <div class="img-center">
+                <img class="img-50 mt-5" src="../img/logo.png" alt="">
+            </div>
+            <div id="links">
+                <a class="mt-5 mb-2" href="../board.html">Board</a>
+                <a class="mb-2" href="../backlog.html">Backlog</a>
+                <a class="mb-2" href="../addTask.html">Add Task</a>
+                <a href="../help.html">Help</a>
+                <a id="adminPanel" class="mb-2 d-none" href="../admin-panel.html">Admin-<br>Panel</a>
+            </div>
+        </div>
+        <div id="legacy-btn">
+            <div class="logout-flex">
+                <span id="currentUser" class="user-logedin">Username</span>
+                <a onclick="userLogout()" href="../index.html"><img src="../img/logout.png" alt=""></a>
+            </div>
+            <img id="openNav" onclick="openNavMenu()" class="menu-design img-25 me-5" src="../img/menu.png" alt="">
+            <img id="closeNav" onclick="closeNavMenu()" class="menu-design img-25 me-5 d-none" src="../img/menu.png"
+                alt="">
+        </div>
+    </div>
+    <!-- Responsive-Container -->
+    <div id="responsive" class="responsive-container">
+        <div class="responsive-container-child">
+            <a class="mb-2 mt-5" href="../board.html">Board</a>
+            <a class="mb-2" href="../backlog.html">Backlog</a>
+            <a class="mb-2" href="../addTask.html">Add Task</a>
+            <a class="mb-2" href="../help.html">Help</a>
+            <a id="adminPanelResponsive" class="mb-2 d-none" href="../admin-panel.html">Admin-Panel</a>
+        </div>
+        <div class="mb-5">
+            <span id="currentUserResponsive" class="user-logedin">Username</span>
+            <a onclick="userLogout()" href="../index.html"><img src="../img/logout.png" alt=""></a>
+        </div>
+    </div>
+</div>
