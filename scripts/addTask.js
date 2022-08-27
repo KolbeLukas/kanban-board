@@ -72,6 +72,7 @@ async function createdTask() {
         'SelectedEmployee': selectedEmployee,
         'SelectedEmployeeEmail': selectedEmployeeEmail
     }
+    document.getElementById('createdButton').disabled = true;
     await addTask(task);
 }
 
@@ -81,10 +82,11 @@ async function createdTask() {
  * @param {*} task - Task is the task you just created.
  * 
  */
-function addTask(task) {
-    taskPushToNewTask(task);
+async function addTask(task) {
+    await taskPushToNewTask(task);
     blankForm();
     openBacklog();
+    document.getElementById('createdButton').disabled = false;
 }
 
 
