@@ -6,18 +6,20 @@ let SelectedEmployeeEmail;
 async function loadData() {
     await downloadFromServer();
     newTask = JSON.parse(backend.getItem('newTask')) || [];
+    EmployeePicker();
 }
 
 function loadNewDate() {
     let date = document.getElementById('date');
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
     let yyyy = today.getFullYear();
 
     today = yyyy + '-' + mm + '-' + dd;
     date.value = today;
 }
+
 
 /**
  * This function creates all employees to assign the task to you.
@@ -28,10 +30,16 @@ function EmployeePicker() {
     document.getElementById('NameFromEmployess').innerHTML = /*html*/`
         <option disabled selected value> -- select an employee -- </option>`;
     for (let i = 0; i < users.length; i++) {
-        const user = decrypt('salt', users[i]['name']);
+        let user = decrypt('salt', users[i]['name']);
         document.getElementById('NameFromEmployess').innerHTML += /*html*/ `
             <option value="${user}">${user}</option>`;
     }
+}
+
+
+function stop(event) {
+    event.stopPropagation();
+    console.log('stop')
 }
 
 
@@ -73,8 +81,8 @@ async function createdTask() {
  * @param {*} task - Task is the task you just created.
  * 
  */
-async function addTask(task) {
-    await taskPushToNewTask(task);
+function addTask(task) {
+    taskPushToNewTask(task);
     blankForm();
     openBacklog();
 }

@@ -288,7 +288,7 @@ function login() {
  * 
  */
 function isLogedIn(decryptUserName, decryptEmail, isAdmin) {
-    window.location.href = "/join/board.html";
+    window.location.href = "./board.html";
     let NewcurrentUser = {
         'name': decryptUserName,
         'email': decryptEmail,

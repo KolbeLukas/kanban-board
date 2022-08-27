@@ -1,5 +1,3 @@
-setURL('https://gruppe-289.developerakademie.net/Join/smallest_backend_ever');
-
 let tasksBoard = [];
 let currentDraggedElement;
 
