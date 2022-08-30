@@ -88,14 +88,12 @@ function getTaskData() {
 
 function checkIfForbidenSign() {
     if (task.title.includes('<') && task.title.includes('>')) {
-        task.title.replaceAll('<', "&lt;");
-        task.title.replaceAll('>', "&gt;");
-        console.log(task.title)
-        debugger
+        task.title = task.title.replaceAll('<', "&lt;");
+        task.title = task.title.replaceAll('>', "&gt;");
     }
     if (task.description.includes('<') && task.description.includes('>')) {
-        task.description.replaceAll('<', "&lt;");
-        task.description.replaceAll('>', "&gt;");
+        task.description = task.description.replaceAll('<', "&lt;");
+        task.description = task.description.replaceAll('>', "&gt;");
     }
 }
 
