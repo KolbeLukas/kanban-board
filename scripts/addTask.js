@@ -1,12 +1,11 @@
-let newTask = [];
+let task;
 let SelectedEmployee;
 let SelectedEmployeeEmail;
 
 
 async function loadData() {
     await downloadFromServer();
-    newTask = JSON.parse(backend.getItem('newTask')) || [];
-    EmployeePicker();
+    employeePicker();
 }
 
 function loadNewDate() {
@@ -25,7 +24,7 @@ function loadNewDate() {
  * This function creates all employees to assign the task to you.
  * 
  */
-function EmployeePicker() {
+function employeePicker() {
     document.getElementById('NameFromEmployess').innerHTML = '';
     document.getElementById('NameFromEmployess').innerHTML = /*html*/`
         <option disabled selected value> -- select an employee -- </option>`;
@@ -37,16 +36,15 @@ function EmployeePicker() {
 }
 
 
-function stop(event) {
-    event.stopPropagation();
-    console.log('stop')
-}
-
-
+/**
+ * 
+ * @param {the name that is selected in the options} selectedEmployee 
+ * @returns the decrypted name
+ */
 function getEmailAdress(selectedEmployee) {
     for (let i = 0; i < users.length; i++) {
         const user = users[i]['name'];
-        if (decrypt('salt', user) == selectedEmployee){
+        if (decrypt('salt', user) == selectedEmployee) {
             return decrypt('salt', users[i]['email']);
         }
     }
@@ -56,10 +54,21 @@ function getEmailAdress(selectedEmployee) {
  * this function creates a new task with the specified information
  * 
  */
-async function createdTask() {
+function createdTask() {
+    getTaskData();
+    document.getElementById('createdButton').disabled = true;
+    addTask();
+}
+
+
+/**
+ * get all the data from the input fields for the new task
+ */
+function getTaskData() {
     let selectedEmployee = document.getElementById('NameFromEmployess').value;
     let selectedEmployeeEmail = getEmailAdress(selectedEmployee);
-    let task = {
+
+    task = {
         'title': document.getElementById('title').value,
         'date': document.getElementById('date').value,
         'categorie': document.getElementById('categorie').value,
@@ -71,33 +80,42 @@ async function createdTask() {
         'state': 'todo',
         'SelectedEmployee': selectedEmployee,
         'SelectedEmployeeEmail': selectedEmployeeEmail
+    };
+    checkIfForbidenSign();
+}
+
+
+function checkIfForbidenSign() {
+    if (task.title.includes('<') && task.title.includes('>')) {
+        task.title.replaceAll('<', "&lt;");
+        task.title.replaceAll('>', "&gt;");
+        console.log(task.title)
+        debugger
     }
-    document.getElementById('createdButton').disabled = true;
-    await addTask(task);
+    if (task.description.includes('<') && task.description.includes('>')) {
+        task.description.replaceAll('<', "&lt;");
+        task.description.replaceAll('>', "&gt;");
+    }
 }
 
 
 /**
  * This function is for better readability. It only executes the functions.
- * @param {*} task - Task is the task you just created.
  * 
  */
-async function addTask(task) {
-    await taskPushToNewTask(task);
+async function addTask() {
+    await taskPushToNewTask();
     blankForm();
     openBacklog();
-    document.getElementById('createdButton').disabled = false;
 }
 
 
 /**
  * This function adds "task" to  "allTask".
- * @param {string} task  - Task is the task you just created.
  * 
  */
-async function taskPushToNewTask(task) {
-    newTask.push(task);
-    await backend.setItem('newTask', JSON.stringify(newTask));
+async function taskPushToNewTask() {
+    await backend.setItem('newTask', JSON.stringify(task));
 }
 
 

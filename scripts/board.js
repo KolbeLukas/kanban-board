@@ -259,6 +259,3 @@ function htmlTicket(i, index) {
         </div>
     `;
 }
-
-
-

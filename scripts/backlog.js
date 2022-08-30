@@ -7,7 +7,8 @@ let tasksBoard = [];
  */
 async function loadBacklog() {
     await downloadFromServer();
-    tasksBacklog = JSON.parse(backend.getItem('newTask')) || [];
+    tasks = JSON.parse(backend.getItem('newTask')) || [];
+    tasksBacklog.push(tasks);
     tasksBoard = JSON.parse(backend.getItem('tasksBoard')) || [];
     loadTaskToBacklog();
 }
@@ -26,7 +27,6 @@ function loadTaskToBacklog() {
         });
     } else {
         backlog.innerHTML = renderEmptyBacklog();
-
     }
 }
 
