@@ -1,4 +1,5 @@
 let task;
+let newTask = [];
 let SelectedEmployee;
 let SelectedEmployeeEmail;
 
@@ -115,7 +116,8 @@ async function addTask() {
  * 
  */
 async function taskPushToNewTask() {
-    await backend.setItem('newTask', JSON.stringify(task));
+    newTask.push(task)
+    await backend.setItem('newTask', JSON.stringify(newTask));
 }
 
 
