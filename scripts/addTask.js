@@ -6,6 +6,7 @@ let SelectedEmployeeEmail;
 
 async function loadData() {
     await downloadFromServer();
+    newTask = JSON.parse(backend.getItem('newTask')) || [];
     employeePicker();
 }
 

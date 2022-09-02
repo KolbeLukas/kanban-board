@@ -1,4 +1,5 @@
-setURL('https://lukas-kolbe.developerakademie.net/join/smallest_backend_ever');
+// setURL('https://lukas-kolbe.developerakademie.net/join/smallest_backend_ever');
+setURL('https://join.lukas-kolbe-dev.de/smallest_backend_ever');
 
 let users = [];
 let currentUser = [];
