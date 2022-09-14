@@ -1,4 +1,3 @@
-// setURL('https://lukas-kolbe.developerakademie.net/join/smallest_backend_ever');
 setURL('https://join.lukas-kolbe-dev.de/smallest_backend_ever');
 
 let users = [];
@@ -268,19 +267,45 @@ function login() {
         const isAdmin = users[i]['isAdmin'];
         const changePassword = users[i]['changePassword'];
 
-        if (userName.value == decryptUserName && userPassword.value == decryptPassword && changePassword == false) {
-            isLogedIn(decryptUserName, decryptEmail, isAdmin);
-
-        } else if (userName.value == decryptUserName && userPassword.value == decryptPassword && changePassword == true) {
-            document.getElementById('loginScreen').classList.add('d-none');
-            document.getElementById('changePasswordScreen').classList.remove('d-none');
-        } else {
-            showErrorMessage();
-        }
+        checkLogin(userName, userPassword, decryptUserName, decryptPassword, decryptEmail, isAdmin, changePassword);
     }
-
     userName.value = "";
     userPassword.value = "";
+}
+
+
+/**
+ * checkes if the entered name and password is included in the existing users
+ * @param {entered name in the input} userName 
+ * @param {entered password in the input} userPassword 
+ * @param {decrypted name of the saved users} decryptUserName 
+ * @param {decrypted password of the saved users} decryptPassword 
+ * @param {decrypted e-mail of the saved users} decryptEmail 
+ * @param {if you are admin or not} isAdmin 
+ * @param {if you have to change password} changePassword 
+ */
+function checkLogin(userName, userPassword, decryptUserName, decryptPassword, decryptEmail, isAdmin, changePassword) {
+    if (userName.value == decryptUserName && userPassword.value == decryptPassword && changePassword == false) {
+        isLogedIn(decryptUserName, decryptEmail, isAdmin);
+
+    } else if (userName.value == decryptUserName && userPassword.value == decryptPassword && changePassword == true) {
+        document.getElementById('loginScreen').classList.add('d-none');
+        document.getElementById('changePasswordScreen').classList.remove('d-none');
+    } else {
+        showErrorMessage();
+    }
+}
+
+
+/**
+ * guest login
+ */
+function loginAsGuest() {
+    let name = 'Gast';
+    let email = 'gast@gast.de';
+    let isAdmin = false;
+
+    isLogedIn(name, email, isAdmin);
 }
 
 
@@ -306,10 +331,11 @@ function isLogedIn(decryptUserName, decryptEmail, isAdmin) {
  */
 function showErrorMessage() {
     setTimeout(() => {
-        document.getElementById('noUser').classList.remove("d-none");
-        document.getElementById('extras').classList.remove('mt-5');
-        document.getElementById('extras').classList.add('mt-2');
-    }, 250);
+        document.getElementById('noUser').classList.remove('d-none');
+    }, 150);
+    setTimeout(() => {
+        document.getElementById('noUser').classList.add('d-none');
+    }, 2500);
 }
 
 
